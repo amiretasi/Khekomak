@@ -11,66 +11,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'Vazirmatn', sans-serif; background-color: #f8fafc; color: #073B4C; overflow-x: hidden; font-size: 16px; } /* Base font size */
+        body { font-family: 'Vazirmatn', sans-serif; background-color: #f8fafc; color: #073B4C; overflow-x: hidden; font-size: 16px; line-height: 1.8; }
         /* Palette: Energetic & Playful - #FF6B6B (Red), #FFD166 (Yellow), #06D6A0 (Green), #118AB2 (Blue), #073B4C (Dark Blue/Text) */
-        .header-bg { background-color: #073B4C; } /* Dark Blue */
-        .primary-text { color: #118AB2; } /* Blue */
-        .secondary-text { color: #06D6A0; } /* Green */
-        .accent-border { border-color: #FFD166; } /* Yellow */
-        .danger-text { color: #FF6B6B; } /* Red */
-        .accent-bg { background-color: #FFD166; } /* Yellow */
+        .header-bg { background-color: #073B4C; }
+        .primary-text { color: #118AB2; }
+        .secondary-text { color: #06D6A0; }
+        .accent-border { border-color: #FFD166; }
+        .danger-text { color: #FF6B6B; }
+        .accent-bg { background-color: #FFD166; }
 
-        h1 { font-size: 1.5rem; } /* Adjusted h1 */
-        h2 { font-size: 1.3rem; scroll-margin-top: 100px; font-weight: 700; } /* Adjusted h2 */
-        h3 { font-size: 1.15rem; scroll-margin-top: 100px; font-weight: 600; } /* Adjusted h3 */
-        h4 { font-size: 1.05rem; font-weight: 600; } /* Adjusted h4 */
-        p, li, td, th { font-size: 0.95rem; line-height: 1.7; } /* Standard text size */
-        .text-sm { font-size: 0.875rem; } /* Specific small text */
-        .text-xs { font-size: 0.8rem; } /* Specific extra small text */
+        h1 { font-size: 1.6rem; font-weight: 700;}
+        h2 { font-size: 1.4rem; scroll-margin-top: 100px; font-weight: 700; }
+        h3 { font-size: 1.2rem; scroll-margin-top: 100px; font-weight: 600; }
+        h4 { font-size: 1.1rem; font-weight: 600; }
+        p, li, td, th { font-size: 1rem; }
+        .text-sm { font-size: 0.9rem; }
+        .text-xs { font-size: 0.8rem; }
 
-
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 700px; /* Increased max-width for better readability */
-            margin-left: auto;
-            margin-right: auto;
-            height: 45vh; /* Slightly increased height */
-            max-height: 450px;
-        }
-         .small-chart-container {
-             position: relative;
-             width: 100%;
-              max-width: 450px; /* Increased max-width */
-             margin-left: auto;
-             margin-right: auto;
-             height: 35vh; /* Slightly increased height */
-             max-height: 350px;
-        }
+        .chart-container { position: relative; width: 100%; max-width: 650px; margin-left: auto; margin-right: auto; height: 380px; max-height: 420px; }
+        .small-chart-container { position: relative; width: 100%; max-width: 400px; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; }
         @media (min-width: 768px) {
-            .chart-container { height: 400px; max-height: 500px; }
-            .small-chart-container { height: 300px; max-height: 400px; }
+            .chart-container { height: 400px; max-height: 450px; }
+            .small-chart-container { height: 320px; max-height: 380px; }
         }
         table { width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; }
-        th, td { padding: 10px 12px; text-align: right; border-bottom: 1px solid #e2e8f0; }
-        th { background-color: #f1f5f9; font-weight: 600; white-space: nowrap; } /* Lightened header */
+        th, td { padding: 12px 14px; text-align: right; border-bottom: 1px solid #e2e8f0; }
+        th { background-color: #f1f5f9; font-weight: 600; white-space: nowrap; font-size: 0.95rem; }
+        td { font-size: 0.95rem; }
         tr:last-child td { border-bottom: none; }
         .negative-value { color: #FF6B6B; font-weight: 600; }
         .positive-value { color: #06D6A0; font-weight: 600; }
         .neutral-value { color: #4a5568; }
 
-        .kpi-card { background-color: white; padding: 1rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); border-left: 5px solid; }
-        .kpi-card h3 { font-size: 0.9rem; font-weight: 600; } /* Adjusted KPI title size */
-        .kpi-card p.text-2xl { font-size: 1.75rem; } /* Adjusted KPI value size */
-        .kpi-card p.text-xs { font-size: 0.8rem; } /* Adjusted KPI unit size */
-
+        .kpi-card { background-color: white; padding: 1.2rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); border-left: 5px solid; }
+        .kpi-card h3 { font-size: 0.95rem; font-weight: 600; }
+        .kpi-card p.text-3xl { font-size: 2rem; }
+        .kpi-card p.text-sm { font-size: 0.85rem; }
 
         .plan-phase { background-color: white; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); border-top: 4px solid; }
-        .plan-phase h3 { display: flex; align-items: center; font-size: 1.25rem; font-weight: 700; }
-        .plan-item { position: relative; padding-right: 2rem; margin-top: 1rem; font-size: 0.95rem;} /* Increased size */
+        .plan-phase h3 { display: flex; align-items: center; font-size: 1.3rem; font-weight: 700; }
+        .plan-item { position: relative; padding-right: 2rem; margin-top: 1rem; font-size: 1rem;}
         .plan-item::before { content: '✔'; position: absolute; right: 0; top: 0.2rem; font-weight: bold; color: #06D6A0; }
-        .plan-item p { font-size: 0.9rem; line-height: 1.6; } /* Increased size and line height */
-
+        .plan-item p { font-size: 0.95rem; line-height: 1.7; }
 
         .bold-text { font-weight: 700; }
 
@@ -80,22 +62,21 @@
         }
         .swot-card { background-color: #fff; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); padding: 1.5rem; border-left: 5px solid; transition: transform 0.2s; }
         .swot-card:hover { transform: translateY(-5px); }
-        .swot-card h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; } /* Increased size */
-        .swot-card h4::before { content: ''; display: inline-block; width: 1.2rem; height: 1.2rem; margin-left: 0.6rem; background-size: contain; background-repeat: no-repeat; background-position: center; font-size: 1.1rem; line-height: 1; }
+        .swot-card h4 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; }
+        .swot-card h4::before { content: ''; display: inline-block; width: 1.3rem; height: 1.3rem; margin-left: 0.7rem; background-size: contain; background-repeat: no-repeat; background-position: center; font-size: 1.2rem; line-height: 1; }
         .swot-strengths { border-color: #06D6A0; } .swot-strengths h4 { color: #059669; } .swot-strengths h4::before { content:'💪'; }
         .swot-weaknesses { border-color: #FF6B6B; } .swot-weaknesses h4 { color: #EF4444; } .swot-weaknesses h4::before { content:'⚠️'; }
         .swot-opportunities { border-color: #118AB2; } .swot-opportunities h4 { color: #0E7490; } .swot-opportunities h4::before { content:'✨'; }
         .swot-threats { border-color: #FFD166; } .swot-threats h4 { color: #F59E0B; } .swot-threats h4::before { content:'⚡'; }
-        .swot-card ul { list-style-type: '✔ '; padding-right: 1.2rem; font-size: 0.9rem; } /* Increased size */
-        .swot-card li { margin-bottom: 0.5rem; } /* Increased spacing */
+        .swot-card ul { list-style-type: '✔ '; padding-right: 1.2rem; font-size: 0.95rem; }
+        .swot-card li { margin-bottom: 0.6rem; }
 
         .results-card { transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; }
         .results-card:hover { transform: scale(1.02); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
-        .results-card h4 {font-size: 1.1rem;} /* Increased size */
-        .results-card ul { font-size: 0.9rem; } /* Increased size */
+        .results-card h4 {font-size: 1.15rem;}
+        .results-card ul { font-size: 0.95rem; }
 
-        .section-title { border-right: 5px solid #118AB2; padding-right: 1rem; font-size: 1.75rem; font-weight: 700; } /* Increased size and weight */
-
+        .section-title { border-right: 5px solid #118AB2; padding-right: 1rem; font-size: 1.8rem; font-weight: 700; }
 
         /* Animation Styles */
         .animate-on-scroll { opacity: 0; transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
@@ -105,12 +86,11 @@
         .slide-in-right { transform: translateX(-50px); }
         .is-visible { opacity: 1; transform: none; }
 
-        #navbar ul { display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; white-space: nowrap; padding: 0 1rem; list-style: none;} /* Added list-style none */
-        #navbar ul::-webkit-scrollbar { display: none; }
-        #navbar ul li { margin: 0; padding: 0;} /* Reset margin/padding for li */
-        #navbar ul li a { padding: 0.5rem 0.8rem; border-radius: 0.25rem; white-space: nowrap; font-size: 0.9rem; text-decoration: none;} /* Increased size and padding */
-        #navbar ul li a:hover { background-color: rgba(230, 240, 245, 0.5); color: #073B4C; }
-        #navbar { overflow: hidden;} /* Prevent potential overflow issues */
+        #navbar ul { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; overflow-x: hidden; padding: 0.5rem 1rem; list-style: none; gap: 0.5rem; }
+        #navbar ul li { margin: 0; padding: 0;}
+        #navbar ul li a { padding: 0.6rem 1rem; border-radius: 0.3rem; white-space: nowrap; font-size: 0.95rem; text-decoration: none;}
+        #navbar ul li a:hover { background-color: rgba(230, 240, 245, 0.7); color: #073B4C; }
+        #navbar { overflow: hidden;}
     </style>
      <!-- Confirm NO SVG or Mermaid JS used -->
      <!-- Palette: Energetic & Playful -->
@@ -120,15 +100,15 @@
 <body class="bg-gray-100">
      <header class="header-bg text-white p-4 shadow-lg sticky top-0 z-50">
          <div class="container mx-auto text-center">
-             <h1 class="text-2xl font-bold">تحلیل بنیادی و راهبردی ایندامین (خکمک)</h1>
-             <p class="text-base mt-1">ارزیابی وضعیت و نقشه راه بهبود برای هیئت مدیره</p>
+             <h1 class="text-2xl">تحلیل بنیادی و راهبردی ایندامین (خکمک)</h1>
+             <p class="text-lg mt-1">ارزیابی وضعیت و نقشه راه بهبود برای هیئت مدیره</p>
          </div>
      </header>
 
-     <nav id="navbar" class="sticky top-[80px] bg-white/95 backdrop-blur-sm shadow-md z-40">
+     <nav id="navbar" class="sticky top-[88px] bg-white/95 backdrop-blur-sm shadow-md z-40">
          <div class="container mx-auto px-4">
-             <div class="flex justify-center items-center h-14">
-                   <ul class="flex space-x-3 md:space-x-5 space-x-reverse font-semibold text-gray-600">
+             <div class="flex justify-center items-center h-auto min-h-[3.5rem]">
+                   <ul class="flex-wrap">
                      <li><a href="#executive_summary" class="hover:text-primary transition-colors duration-300">خلاصه وضعیت</a></li>
                      <li><a href="#financial_analysis" class="hover:text-primary transition-colors duration-300">تحلیل مالی</a></li>
                      <li><a href="#operational_analysis" class="hover:text-primary transition-colors duration-300">تحلیل عملیاتی</a></li>
@@ -149,11 +129,13 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 text-center mb-6">
                  <div class="kpi-card border-blue-500 animate-on-scroll fade-in-down" style="transition-delay: 100ms;"><h3 class="text-base font-semibold text-gray-500">درآمد (۶ماهه ۱۴۰۴)</h3><p class="text-3xl font-bold primary-text mt-1">۸٬۳۱۱</p><p class="text-sm text-gray-500">میلیارد ریال</p></div>
                  <div class="kpi-card border-orange-500 animate-on-scroll fade-in-up" style="transition-delay: 200ms;"><h3 class="text-base font-semibold text-gray-500">بهای تمام شده (۶ماهه ۱۴۰۴)</h3><p class="text-3xl font-bold text-orange-600 mt-1">۷٬۵۷۸</p><p class="text-sm text-gray-500">۹۱٪ درآمد</p></div>
-                 <div class="kpi-card border-red-500 animate-on-scroll fade-in-down" style="transition-delay: 300ms;"><h3 class="text-base font-semibold text-gray-500">سود خالص (۶ماهه ۱۴۰۴)</h3><p class="text-3xl font-bold negative-value mt-1">۴۳</p><p class="text-sm text-gray-500">مارژین ۰.۵٪</p></div>
-                 <div class="kpi-card border-red-700 animate-on-scroll fade-in-up" style="transition-delay: 400ms;"><h3 class="text-base font-semibold text-gray-500">جریان نقد عملیاتی (۶ماهه ۱۴۰۴)</h3><p class="text-3xl font-bold negative-value mt-1">(۱۰۴)</p><p class="text-sm text-gray-500">میلیارد ریال</p></div>
+                 <div class="kpi-card border-red-500 animate-on-scroll fade-in-down" style="transition-delay: 300ms;"><h3 class="text-base font-semibold text-gray-500">سود خالص (۶ماهه ۱۴۰۴)</h3><p class="text-3xl font-bold danger-text mt-1">۴۳</p><p class="text-sm text-gray-500">مارژین ۰.۵٪</p></div>
+                 <div class="kpi-card border-red-700 animate-on-scroll fade-in-up" style="transition-delay: 400ms;"><h3 class="text-base font-semibold text-gray-500">جریان نقد عملیاتی (۶ماهه ۱۴۰۴)</h3><p class="text-3xl font-bold danger-text mt-1">(۱۰۴)</p><p class="text-sm text-gray-500">میلیارد ریال</p></div>
                  <div class="kpi-card border-yellow-500 animate-on-scroll fade-in-down" style="transition-delay: 500ms;"><h3 class="text-base font-semibold text-gray-500">نسبت بدهی (۱۴۰۴/۰۶/۳۱)</h3><p class="text-3xl font-bold text-yellow-600 mt-1">۷۱٪</p><p class="text-sm text-gray-500">اهرم بالا</p></div>
             </div>
-             <p class="text-base text-gray-700 bg-blue-50 border-r-4 border-blue-300 p-5 rounded mb-8 animate-on-scroll fade-in leading-relaxed">تحلیل داده‌های مالی ایندامین نشان می‌دهد علیرغم رشد اسمی درآمد، شرکت با چالش‌های ساختاری جدی در سودآوری، نقدینگی و اهرم مالی مواجه است. حاشیه سودها بسیار پایین، بازدهی نامطلوب و بحران نقدینگی ناشی از مشکلات وصول مطالبات و مدیریت سرمایه در گردش، مشهود است. اهرم مالی بالا ریسک را افزایش داده است. بهبود پایدار، مستلزم اقدامات فوری عملیاتی (نقدینگی، هزینه) و بازنگری استراتژیک (ساختار مالی، تمرکز بر سودآوری واقعی) است.</p>
+             <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500 animate-on-scroll fade-in mb-8">
+                 <p class="text-gray-700 text-justify leading-relaxed">تحلیل داده‌های مالی ایندامین نشان می‌دهد علیرغم رشد اسمی درآمد، شرکت با چالش‌های ساختاری جدی در سودآوری، نقدینگی و اهرم مالی مواجه است. حاشیه سودها بسیار پایین، بازدهی نامطلوب و بحران نقدینگی ناشی از مشکلات وصول مطالبات و مدیریت سرمایه در گردش، مشهود است. اهرم مالی بالا ریسک را افزایش داده است. بهبود پایدار، مستلزم اقدامات فوری عملیاتی (نقدینگی، هزینه) و بازنگری استراتژیک (ساختار مالی، تمرکز بر سودآوری واقعی) است.</p>
+             </div>
         </section>
 
          <section id="financial_analysis" class="mb-8 bg-white p-6 rounded-lg shadow-lg pt-28 -mt-28">
@@ -194,33 +176,42 @@
 
           <section id="operational_analysis" class="mb-8 bg-white p-6 rounded-lg shadow-lg pt-28 -mt-28">
               <h2 class="section-title mb-6">بخش دوم: تحلیل ریشه‌های بحران عملیاتی</h2>
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="animate-on-scroll fade-in-up order-2 lg:order-1">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                    <div class="animate-on-scroll fade-in-up">
                        <h3 class="text-lg font-semibold mb-3 text-center">مقایسه رشد هزینه‌ها و درآمد (۶ماهه ۱۴۰۴ به ۱۴۰۳)</h3>
                         <div class="chart-container"><canvas id="costRevenueGrowthChart"></canvas></div>
                         <p class="text-sm text-gray-600 mt-3 text-center">رشد دستمزد (۴۰٪) و سربار (۴۵٪) بسیار بیشتر از رشد درآمد (۱۵٪) و رشد هزینه مواد (۱۱.۵٪) بوده است!</p>
                    </div>
-                   <div class="animate-on-scroll fade-in order-1 lg:order-2">
+                   <div class="animate-on-scroll fade-in">
                         <h3 class="text-lg font-semibold mb-3 text-center">ترکیب بهای تمام شده ساخت (۶ماهه ۱۴۰۴)</h3>
                         <div class="small-chart-container"><canvas id="cogsBreakdownChart"></canvas></div>
                         <p class="text-sm text-gray-600 mt-3 text-center">مواد مستقیم (آبی: ۵۷٪) بیشترین سهم را دارد. دستمزد (زرد: ۲۲٪) و سربار (قرمز: ۲۱٪) سهم بالایی دارند.</p>
                    </div>
-                   <div class="animate-on-scroll slide-in-right order-3">
+                   <div class="animate-on-scroll slide-in-right">
                        <h3 class="text-lg font-semibold mb-3 text-center">وضعیت نیروی انسانی</h3>
-                        <p class="text-base text-gray-600 mb-2 text-center">میانگین کارکنان (۶ماهه ۱۴۰۴): <span class="font-bold">۵۷۰ نفر</span></p>
-                        <ul class="text-sm text-gray-600 list-disc list-inside space-y-1 text-center mx-auto max-w-xs">
-                            <li>رشد ۴۰٪ هزینه دستمزد مستقیم!</li>
-                            <li>افزایش پرسنل با وجود کاهش تولید!</li>
-                            <li>نیاز به افزایش بهره‌وری و بازنگری ساختار.</li>
-                        </ul>
+                         <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-200">
+                             <table>
+                                 <tbody>
+                                     <tr><th>شاخص</th><td class="font-bold">۵۷۰ نفر (میانگین ۶ماهه ۱۴۰۴)</td></tr>
+                                     <tr><th>نکته ۱</th><td>رشد ۴۰٪ هزینه دستمزد مستقیم!</td></tr>
+                                     <tr><th>نکته ۲</th><td>افزایش پرسنل با وجود کاهش تولید!</td></tr>
+                                     <tr><th>نتیجه</th><td class="danger-text">نیاز به افزایش بهره‌وری و بازنگری ساختار.</td></tr>
+                                 </tbody>
+                             </table>
+                         </div>
                    </div>
-                    <div class="animate-on-scroll slide-in-right order-4" style="transition-delay: 100ms;">
+                    <div class="animate-on-scroll slide-in-right" style="transition-delay: 100ms;">
                         <h3 class="text-lg font-semibold mb-3 text-center">قیمت‌گذاری و فروش</h3>
-                         <ul class="text-sm text-gray-600 list-disc list-inside space-y-1 text-center mx-auto max-w-xs">
-                             <li>رشد ۱۵٪ درآمد فقط ناشی از افزایش قیمت (توافق ۱۰٪ با سایپا).</li>
-                             <li>وابستگی ۸۰٪ فروش به گروه سایپا = قدرت چانه‌زنی پایین.</li>
-                             <li>افزایش قیمت فقط جبران هزینه کرده، نه بهبود مارجین.</li>
-                         </ul>
+                          <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-200">
+                              <table>
+                                  <tbody>
+                                      <tr><th>شاخص</th><td class="font-bold">رشد ۱۵٪ درآمد (۶ماهه ۱۴۰۴)</td></tr>
+                                      <tr><th>نکته ۱</th><td>فقط ناشی از افزایش قیمت (توافق ۱۰٪ با سایپا).</td></tr>
+                                      <tr><th>نکته ۲</th><td>وابستگی ۸۰٪ فروش به گروه سایپا = قدرت چانه‌زنی پایین.</td></tr>
+                                      <tr><th>نتیجه</th><td class="danger-text">افزایش قیمت فقط جبران هزینه کرده، نه بهبود مارجین.</td></tr>
+                                  </tbody>
+                              </table>
+                          </div>
                     </div>
               </div>
           </section>
@@ -231,7 +222,7 @@
              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                  <div class="animate-on-scroll fade-in-up">
                      <h3 class="text-lg font-semibold mb-3 text-center">روند تولید سالانه بر اساس تیپ محصول (تعداد)</h3>
-                     <div class="chart-container"><canvas id="productionByTypeChart"></canvas></div>
+                     <div class="chart-container"><canvas id="productionByTypeAnnualChart"></canvas></div>
                       <p class="text-sm text-gray-600 mt-3 text-center">تولید تیپ ۶۲ (آبی) و تیپ ۶۷ (قرمز) پس از اوج ۱۴۰۲، در ۱۴۰۳ کاهش یافته است.</p>
                  </div>
                  <div class="animate-on-scroll fade-in-up" style="transition-delay: 100ms;">
@@ -241,13 +232,17 @@
                   </div>
                  <div class="lg:col-span-2 animate-on-scroll fade-in">
                      <h4 class="font-semibold text-lg text-center primary-text mt-4">نکات کلیدی تحلیل تولید:</h4>
-                     <ul class="text-base text-gray-600 list-disc list-inside space-y-2 mt-3 text-center mx-auto max-w-lg">
-                        <li>اوج تولید و فروش در سال ۱۴۰۲ (حدود ۲ و ۱.۹ میلیون عدد) همزمان با بهترین عملکرد سودآوری بوده است.</li>
-                        <li>کاهش ۱۰٪ تولید در ۱۴۰۳ و ادامه آن در ۶ ماهه ۱۴۰۴ (۱۲٪-) عامل اصلی فشار بر هزینه ثابت و کاهش مارجین است.</li>
-                        <li>فروش ۶ ماهه ۱۴۰۴ حتی از تولید آن دوره نیز کمتر بوده (۲۲٪-) که منجر به افزایش موجودی شده است.</li>
-                        <li>وابستگی شدید به دو تیپ محصول (۶۲ و ۶۷) ریسک سبد محصول را بالا می‌برد.</li>
-                        <li>بازگشت تولید به سطح حداقل سال ۱۴۰۲ برای بقا ضروری است.</li>
-                     </ul>
+                      <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-200 mt-3">
+                           <table>
+                               <tbody>
+                                   <tr><th>مقایسه با اوج (۱۴۰۲):</th><td>اوج تولید و فروش در سال ۱۴۰۲ (حدود ۲ و ۱.۹ میلیون عدد) همزمان با بهترین سودآوری بود.</td></tr>
+                                   <tr><th>کاهش حجم:</th><td>کاهش ۱۰٪ تولید در ۱۴۰۳ و ادامه آن در ۶ ماهه ۱۴۰۴ (۱۲٪-) عامل فشار بر هزینه ثابت و کاهش مارجین است.</td></tr>
+                                   <tr><th>عدم تطابق فروش و تولید:</th><td>فروش ۶ ماهه ۱۴۰۴ حتی از تولید آن دوره نیز کمتر بوده (۲۲٪-) که منجر به افزایش موجودی شده است.</td></tr>
+                                   <tr><th>ریسک سبد محصول:</th><td>وابستگی شدید به دو تیپ محصول (۶۲ و ۶۷) ریسک را بالا می‌برد.</td></tr>
+                                   <tr><th>هدف‌گذاری:</th><td class="font-bold primary-text">بازگشت تولید به سطح حداقل سال ۱۴۰۲ برای بقا ضروری است.</td></tr>
+                               </tbody>
+                           </table>
+                      </div>
                  </div>
              </div>
         </section>
@@ -291,12 +286,12 @@
                                      <tr>
                                          <td>تسهیلات بانکی (کوتاه مدت)</td>
                                          <td class="neutral-value">۰</td>
-                                         <td>تسویه شده (احتمالاً با فشار بر نقدینگی/خرید دین). عدم دسترسی به اعتبار جدید؟</td>
+                                         <td>تسویه شده در ۱۴۰۴/۰۵. عدم دسترسی به اعتبار جدید؟</td>
                                      </tr>
                                      <tr>
                                          <td>مالیات پرداختنی (جاری)</td>
                                          <td class="negative-value">۹۷</td>
-                                         <td>شامل بدهی عملکرد و ارزش افزوده. ریسک جرائم و اقدامات اجرایی.</td>
+                                         <td>بدهی عملکرد ۱۴۰۲ به بعد و ارزش افزوده. ریسک جرائم و اقدامات اجرایی.</td>
                                      </tr>
                                       <tr>
                                          <td>پرداختنی‌های تجاری (جاری)</td>
@@ -305,18 +300,18 @@
                                       </tr>
                                        <tr>
                                            <td>بدهی ارزی (پایان دوره)</td>
-                                           <td class="negative-value">~ ۰.۸</td>
-                                           <td>۷۵۶ هزار یورو + ۱۴۹ هزار دلار. عمدتاً به تامین‌کنندگان خارجی. ریسک نوسانات ارزی بالا.</td>
+                                           <td class="negative-value">~ ۷۷۰</td>
+                                           <td>۷۵۶ هزار یورو + ۱۴۹ هزار دلار (معادل تقریبی). عمدتاً به تامین‌کنندگان خارجی. ریسک نوسانات ارزی بالا.</td>
                                        </tr>
                                        <tr>
                                            <td>ذخیره مزایای پایان خدمت (غیرجاری)</td>
                                            <td class="negative-value">۱٬۳۱۴</td>
-                                           <td>تعهد بلندمدت قابل توجه با روند افزایشی سریع.</td>
+                                           <td>تعهد بلندمدت قابل توجه با روند افزایشی سریع (رشد ۵۰٪ در ۶ ماه!).</td>
                                        </tr>
                                         <tr>
                                             <td>بیمه پرداختنی (جاری - بخشی از سایر پرداختنی‌ها)</td>
                                             <td class="negative-value">~ ۲۶</td>
-                                            <td>بدهی به تامین اجتماعی، ریسک جرائم.</td>
+                                            <td>بدهی جاری به تامین اجتماعی، ریسک جرائم.</td>
                                         </tr>
                                        <tr class="bg-gray-50 font-bold">
                                            <td>جمع کل بدهی‌ها</td>
@@ -358,9 +353,9 @@
                          </div>
                     </div>
                      <div class="lg:col-span-2 mt-6 bg-red-100 border-r-4 border-red-600 p-6 rounded-lg shadow-inner animate-on-scroll fade-in">
-                          <h4 class="font-bold text-xl danger-text mb-3">نظر تحلیلی نهایی (تشخیص بحران برای مدیرعامل سایپا):</h4>
+                          <h4 class="font-bold text-xl danger-text mb-3">نظر تحلیلی نهایی (تشخیص بحران برای هیئت مدیره):</h4>
                            <p class="text-lg text-gray-800 text-justify leading-relaxed">
-                               جناب آقای مدیرعامل، ایندامین (خکمک) دیگر یک شرکت بحران‌زده نیست؛ <span class="font-bold danger-text">یک جسد متحرک در آستانه فروپاشی کامل است</span>. سودآوری در حد صفر، نقدینگی منفی ۱۰۰ میلیارد تومانی، بدهی ۱۱۰۰ میلیارد تومانی (۷۱٪ کل دارایی) و کاهش تولید، نشانه‌های قطعی <span class="font-bold">مرگ بالینی</span> است. وابستگی برده‌وار به سایپا، ناکارآمدی عملیاتی مرگبار (رشد هزینه‌ها ۲ تا ۳ برابر درآمد!) و بوروکراسی فلج‌کننده، شرکت را به نقطه‌ای رسانده که <span class="font-bold">حتی افزایش ۱۰٪ قیمت هم فقط از سرعت سقوط کاسته، نه اینکه مسیر را عوض کند</span>.
+                               شرکت کارخانجات کمک فنر ایندامین سایپا (خکمک) دیگر یک شرکت بحران‌زده نیست؛ <span class="font-bold danger-text">یک جسد متحرک در آستانه فروپاشی کامل است</span>. سودآوری در حد صفر، نقدینگی منفی ۱۰۰ میلیارد تومانی، بدهی ۱۱۰۰ میلیارد تومانی (۷۱٪ کل دارایی) و کاهش تولید، نشانه‌های قطعی <span class="font-bold">مرگ بالینی</span> است. وابستگی برده‌وار به سایپا، ناکارآمدی عملیاتی مرگبار (رشد هزینه‌ها ۲ تا ۳ برابر درآمد!) و بوروکراسی فلج‌کننده، شرکت را به نقطه‌ای رسانده که <span class="font-bold">حتی افزایش ۱۰٪ قیمت هم فقط از سرعت سقوط کاسته، نه اینکه مسیر را عوض کند</span>.
                                <br>
                                <span class="font-bold danger-text">اخطار نهایی:</span> اگر سایپا فوراً با تزریق نقدینگی و سرمایه قابل توجه (حداقل ۲۰۰ میلیارد تومان)، تفویض اختیار کامل به تیم احیا برای جراحی هزینه‌ها و ساختار، و حمایت قاطع برای تغییر استراتژی (ورود به بازار یدکی)، وارد عمل نشود، <span class="font-bold">ایندامین ظرف چند ماه آینده متوقف خواهد شد</span> و بار مالی و اعتباری سنگین‌تری بر دوش گروه خواهد گذاشت. <span class="font-bold">این آخرین فرصت برای احیا است، نه بهبود.</span>
                            </p>
@@ -490,27 +485,30 @@
 
      <script>
          document.addEventListener('DOMContentLoaded', function () {
-             // Safe Chart.js Defaults Initialization
+            // Safe Chart.js Defaults Initialization
              if (typeof Chart !== 'undefined' && Chart.defaults) {
-                 Chart.defaults.font = Chart.defaults.font || {};
-                 Chart.defaults.font.family = 'Vazirmatn';
-                 Chart.defaults.font.size = 12; // Base chart font size
+                Chart.defaults.font = Chart.defaults.font || {}; // Ensure font object exists
+                Chart.defaults.font.family = 'Vazirmatn';
+                Chart.defaults.font.size = 13; // Increased Base chart font size
 
-                 Chart.defaults.plugins = Chart.defaults.plugins || {};
+                Chart.defaults.plugins = Chart.defaults.plugins || {}; // Ensure plugins object exists
 
-                 Chart.defaults.plugins.tooltip = Chart.defaults.plugins.tooltip || {};
-                 Chart.defaults.plugins.tooltip.rtl = true;
-                 Chart.defaults.plugins.tooltip.textDirection = 'rtl';
-                 Chart.defaults.plugins.tooltip.titleFont = Chart.defaults.plugins.tooltip.titleFont || {}; // Ensure exists
-                 Chart.defaults.plugins.tooltip.bodyFont = Chart.defaults.plugins.tooltip.bodyFont || {}; // Ensure exists
+                Chart.defaults.plugins.tooltip = Chart.defaults.plugins.tooltip || {}; // Ensure tooltip object exists
+                Chart.defaults.plugins.tooltip.rtl = true;
+                Chart.defaults.plugins.tooltip.textDirection = 'rtl';
+                Chart.defaults.plugins.tooltip.titleFont = Chart.defaults.plugins.tooltip.titleFont || {}; // Ensure titleFont object exists
+                Chart.defaults.plugins.tooltip.bodyFont = Chart.defaults.plugins.tooltip.bodyFont || {}; // Ensure bodyFont object exists
+                Chart.defaults.plugins.tooltip.titleFont.size = 14; // Tooltip title
+                Chart.defaults.plugins.tooltip.bodyFont.size = 13; // Tooltip body
 
-                 Chart.defaults.plugins.legend = Chart.defaults.plugins.legend || {};
-                 Chart.defaults.plugins.legend.rtl = true;
-                 Chart.defaults.plugins.legend.textDirection = 'rtl';
-                 Chart.defaults.plugins.legend.labels = Chart.defaults.plugins.legend.labels || {};
-                 Chart.defaults.plugins.legend.labels.font = Chart.defaults.plugins.legend.labels.font || {};
-                 Chart.defaults.plugins.legend.labels.font.size = 11; // Legend font size
-             }
+
+                Chart.defaults.plugins.legend = Chart.defaults.plugins.legend || {}; // Ensure legend object exists
+                Chart.defaults.plugins.legend.rtl = true;
+                Chart.defaults.plugins.legend.textDirection = 'rtl';
+                Chart.defaults.plugins.legend.labels = Chart.defaults.plugins.legend.labels || {}; // Ensure labels object exists
+                Chart.defaults.plugins.legend.labels.font = Chart.defaults.plugins.legend.labels.font || {}; // Ensure font object exists
+                Chart.defaults.plugins.legend.labels.font.size = 12; // Increased Legend font size
+            }
 
 
              const wrapLabel = (label, maxWidth = 16) => {
@@ -523,7 +521,9 @@
                      else { lines.push(currentLine); currentLine = word.length <= maxWidth ? word : word.substring(0, maxWidth) + '...'; }
                  });
                  if (currentLine) lines.push(currentLine);
-                 return lines.length === 1 ? lines[0] : lines.map(line => line.length > maxWidth ? line.substring(0, maxWidth) + '...' : line);
+                 // Flatten the array if it contains nested arrays, then join
+                 const flatLines = lines.flat();
+                 return flatLines.length === 1 ? flatLines[0] : flatLines.map(line => line.length > maxWidth ? line.substring(0, maxWidth) + '...' : line);
              };
 
             const standardTooltipCallbacks = {
@@ -559,17 +559,17 @@
             };
 
              const colorPrimary = '#118AB2'; const colorSecondary = '#06D6A0'; const colorAccent = '#FFD166'; const colorDanger = '#FF6B6B'; const colorDark = '#073B4C';
-             const tickFontSize = 11; const axisTitleFontSize = 12; const legendFontSize = 11;
-             const tooltipTitleFontSize = 13; const tooltipBodyFontSize = 12;
+             const tickFontSize = 12; const axisTitleFontSize = 13; const legendFontSize = 12;
+             const tooltipTitleFontSize = 14; const tooltipBodyFontSize = 13;
 
              const chartConfigs = {
                 financialTrendChart: { type: 'bar', data: { labels: ['۱۴۰۰', '۱۴۰۱', '۱۴۰۲', '۱۴۰۳'], datasets: [ { type: 'line', label: 'سود ناخالص', data: [494, 1359, 2169, 1671], borderColor: colorSecondary, backgroundColor: colorSecondary + '33', fill: true, tension: 0.1, borderWidth: 2, order: 1, yAxisID: 'yMargins' }, { type: 'bar', label: 'درآمد عملیاتی', data: [6537, 11639, 15877, 18693], backgroundColor: colorPrimary + 'AA', borderColor: colorPrimary, order: 2, yAxisID: 'yValues' }, { type: 'bar', label: 'بهای تمام شده', data: [6043, 10280, 13707, 17022], backgroundColor: colorDanger + 'AA', borderColor: colorDanger, order: 3, yAxisID: 'yValues' } ] }, options: { responsive: true, maintainAspectRatio: false, scales: { yValues: { type: 'linear', position: 'right', beginAtZero: true, title: { display: true, text: 'میلیارد ریال', font:{size: axisTitleFontSize} }, ticks: { font: { size: tickFontSize } } }, yMargins: { type: 'linear', position: 'left', min: 0, suggestedMax: 2500, title: { display: true, text: 'سود ناخالص (میلیارد ریال)', font:{size: axisTitleFontSize} }, grid: { drawOnChartArea: false }, ticks: { font: { size: tickFontSize } } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                 marginChart: { type: 'line', data: { labels: ['۱۴۰۰', '۱۴۰۱', '۱۴۰۲', '۱۴۰۳', wrapLabel('۶م ۱۴۰۳', 10), wrapLabel('۶م ۱۴۰۴', 10)], datasets: [ { label: 'حاشیه سود ناخالص', data: [7.6, 11.7, 13.7, 8.9, 9.1, 8.8], borderColor: colorPrimary, backgroundColor: 'transparent', tension: 0.1, borderWidth: 2, pointRadius: 3 }, { label: 'حاشیه سود عملیاتی', data: [0.4, 3.5, 3.1, 0.5, 0.5, 0.6], borderColor: colorSecondary, backgroundColor: 'transparent', tension: 0.1, borderWidth: 2, pointRadius: 3 }, { label: 'حاشیه سود خالص', data: [0.2, 2.8, 2.5, 0.4, 0.4, 0.5], borderColor: colorDanger, backgroundColor: 'transparent', tension: 0.1, borderWidth: 2, pointRadius: 3 } ] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { min: -1, suggestedMax: 15, ticks: { callback: v => v.toFixed(1) + '%', font: { size: tickFontSize } } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: percentageOnlyTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                  returnRatiosChart: { type: 'bar', data: { labels: ['۱۴۰۰', '۱۴۰۱', '۱۴۰۲', '۱۴۰۳', wrapLabel('۶م ۱۴۰۳ (*۲)', 10), wrapLabel('۶م ۱۴۰۴ (*۲)', 10)], datasets: [ { label: 'ROE', data: [11.6, 15.0, 9.1, 1.6, 1.1, 1.9], backgroundColor: colorAccent+'AA', borderColor: colorAccent }, { label: 'ROA', data: [0.5, 5.3, 3.8, 0.6, 0.4, 0.6], backgroundColor: colorPrimary+'AA', borderColor: colorPrimary } ] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, suggestedMax: 20, ticks: { callback: v => v.toFixed(1) + '%', font: { size: tickFontSize } } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: percentageOnlyTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
-                 productionSaleVolumeChart: { type: 'bar', data: { labels: ['۱۴۰۱', '۱۴۰۲', '۱۴۰۳', wrapLabel('۶م ۱۴۰۳', 10), wrapLabel('۶م ۱۴۰۴', 10)], datasets: [ { label: 'تعداد تولید', data: [1731706, 1983944, 1801063, 839886, 739351], backgroundColor: colorPrimary + 'AA', borderColor: colorPrimary }, { label: 'تعداد فروش', data: [1715799, 1872246, 1815159, 823153, 645080], backgroundColor: colorDanger + 'AA', borderColor: colorDanger } ] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { font: { size: tickFontSize }, callback: v => (v/1000).toLocaleString('fa-IR', { maximumFractionDigits: 0 }) + ' K' } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
+                 productionSaleVolumeChart: { type: 'bar', data: { labels: ['۱۴۰۰', '۱۴۰۱', '۱۴۰۲', '۱۴۰۳', wrapLabel('۶م ۱۴۰۳', 10), wrapLabel('۶م ۱۴۰۴', 10)], datasets: [ { label: 'تعداد تولید', data: [1528046, 1731706, 1983944, 1801063, 839886, 739351], backgroundColor: colorPrimary + 'AA', borderColor: colorPrimary }, { label: 'تعداد فروش', data: [1526046, 1715799, 1872246, 1815159, 823153, 645080], backgroundColor: colorDanger + 'AA', borderColor: colorDanger } ] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { font: { size: tickFontSize }, callback: v => (v/1000).toLocaleString('fa-IR', { maximumFractionDigits: 0 }) + ' K' } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                 cogsBreakdownChart: { type: 'doughnut', data: { labels: ['مواد مستقیم', 'دستمزد مستقیم', 'سربار ساخت'], datasets: [{ data: [4478064, 1714068, 1615798], backgroundColor: [colorPrimary, colorAccent, colorDanger], hoverOffset: 4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: percentageTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                 costRevenueGrowthChart: { type: 'bar', data: { labels: [wrapLabel('درآمد عملیاتی',10), wrapLabel('مواد مستقیم',10), wrapLabel('دستمزد مستقیم',10), wrapLabel('سربار ساخت',10)], datasets: [{ label: '% رشد (۶ماهه ۱۴۰۴ به ۱۴۰۳)', data: [15.3, 11.5, 40.4, 45.0], backgroundColor: [colorSecondary, colorPrimary, colorDanger, colorDanger], borderWidth: 1 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { callback: v => v + '%', font: { size: tickFontSize } } }, x: { ticks: { font: { size: tickFontSize } } } }, plugins: { legend: { display: false }, tooltip: { callbacks: percentageOnlyTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
-                productionByTypeChart: { type: 'bar', data: { labels: ['۱۴۰۱', '۱۴۰۲', '۱۴۰۳', wrapLabel('۶م ۱۴۰۳', 10), wrapLabel('۶م ۱۴۰۴', 10)], datasets: [ { label: 'تیپ ۶۲', data: [1018447, 1144708, 998690, 429211, 360619], backgroundColor: colorPrimary + 'AA', borderColor: colorPrimary }, { label: 'تیپ ۶۷', data: [713259, 839236, 802373, 393942, 284461], backgroundColor: colorAccent + 'AA', borderColor: colorAccent } ] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'x', scales: { y: { beginAtZero: true, stacked: true, title: {display: true, text: 'تعداد', font: {size: axisTitleFontSize}}, ticks: { font: { size: tickFontSize }, callback: v => (v/1000).toLocaleString('fa-IR', { maximumFractionDigits: 0 }) + ' K' } }, x: { stacked: true, ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
+                productionByTypeAnnualChart: { type: 'bar', data: { labels: ['۱۴۰۱', '۱۴۰۲', '۱۴۰۳'], datasets: [ { label: 'تیپ ۶۲', data: [1018447, 1144708, 998690], backgroundColor: colorPrimary + 'AA', borderColor: colorPrimary }, { label: 'تیپ ۶۷', data: [713259, 839236, 802373], backgroundColor: colorAccent + 'AA', borderColor: colorAccent } ] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'x', scales: { y: { beginAtZero: true, stacked: true, title: {display: true, text: 'تعداد', font: {size: axisTitleFontSize}}, ticks: { font: { size: tickFontSize }, callback: v => (v/1000).toLocaleString('fa-IR', { maximumFractionDigits: 0 }) + ' K' } }, x: { stacked: true, ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                 cfoTrendChart: { type: 'bar', data: { labels: ['۱۴۰۰', '۱۴۰۱', '۱۴۰۲', '۱۴۰۳', wrapLabel('۶م ۱۴۰۳', 10), wrapLabel('۶م ۱۴۰۴', 10)], datasets: [{ label: 'جریان نقد عملیاتی', data: [170, -19.5, 110.7, 284.2, -28.9, -104.1], backgroundColor: (context) => context.raw >= 0 ? colorSecondary : colorDanger, borderColor: (context) => context.raw >= 0 ? colorSecondary : colorDanger, borderWidth: 1 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { title: {display: true, text: 'میلیارد ریال', font: {size: axisTitleFontSize}}, ticks: { font: { size: tickFontSize } } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { display: false }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                  liquidityRatiosChart: { type: 'bar', data: { labels: [wrapLabel('نسبت جاری', 10), wrapLabel('نسبت آنی', 10)], datasets: [{ label: 'مقدار نسبت', data: [1.14, 0.79], backgroundColor: [colorPrimary + 'AA', colorDanger + 'AA'], borderColor: [colorPrimary, colorDanger], borderWidth: 1 }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', scales: { x: { beginAtZero: true, suggestedMax: 1.5, ticks: { font: { size: tickFontSize } } }, y: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { display: false }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                  debtCompositionChart: { type: 'doughnut', data: { labels: ['بدهی‌های جاری', 'بدهی‌های غیرجاری'], datasets: [{ label: 'ترکیب بدهی‌ها', data: [10086071, 1305542], backgroundColor: [colorDanger, colorAccent], hoverOffset: 4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: percentageTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
