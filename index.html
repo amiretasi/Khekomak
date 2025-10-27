@@ -21,8 +21,8 @@
         .accent-bg { background-color: #FFD166; }
 
         h1 { font-size: 1.6rem; font-weight: 700;}
-        h2 { font-size: 1.4rem; scroll-margin-top: 100px; font-weight: 700; }
-        h3 { font-size: 1.2rem; scroll-margin-top: 100px; font-weight: 600; }
+        h2 { font-size: 1.4rem; scroll-margin-top: 80px; font-weight: 700; } /* Adjusted scroll-margin */
+        h3 { font-size: 1.2rem; scroll-margin-top: 80px; font-weight: 600; } /* Adjusted scroll-margin */
         h4 { font-size: 1.1rem; font-weight: 600; }
         p, li, td, th { font-size: 1rem; }
         .text-sm { font-size: 0.9rem; }
@@ -34,11 +34,12 @@
             .chart-container { height: 400px; max-height: 450px; }
             .small-chart-container { height: 320px; max-height: 380px; }
         }
-        table { width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; background-color: white; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden; } /* Added bg, radius, shadow, overflow */
         th, td { padding: 12px 14px; text-align: right; border-bottom: 1px solid #e2e8f0; }
-        th { background-color: #f1f5f9; font-weight: 600; white-space: nowrap; font-size: 0.95rem; }
-        td { font-size: 0.95rem; }
+        th { background-color: #f1f5f9; font-weight: 600; white-space: nowrap; font-size: 0.95rem; color: #334155; } /* Darker text for header */
+        td { font-size: 0.95rem; color: #475569; } /* Slightly darker text for data */
         tr:last-child td { border-bottom: none; }
+        tr:hover { background-color: #f8fafc; } /* Hover effect */
         .negative-value { color: #FF6B6B; font-weight: 600; }
         .positive-value { color: #06D6A0; font-weight: 600; }
         .neutral-value { color: #4a5568; }
@@ -86,11 +87,14 @@
         .slide-in-right { transform: translateX(-50px); }
         .is-visible { opacity: 1; transform: none; }
 
-        #navbar ul { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; overflow-x: hidden; padding: 0.5rem 1rem; list-style: none; gap: 0.5rem; }
+        /* Navbar fix */
+        #navbar ul { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; padding: 0.5rem 0; list-style: none; gap: 0.5rem; width: 100%; }
         #navbar ul li { margin: 0; padding: 0;}
-        #navbar ul li a { padding: 0.6rem 1rem; border-radius: 0.3rem; white-space: nowrap; font-size: 0.95rem; text-decoration: none;}
+        #navbar ul li a { padding: 0.5rem 0.8rem; border-radius: 0.3rem; white-space: nowrap; font-size: 0.9rem; text-decoration: none; color: #475569; }
         #navbar ul li a:hover { background-color: rgba(230, 240, 245, 0.7); color: #073B4C; }
-        #navbar { overflow: hidden;}
+        #navbar { overflow: hidden; width: 100%;}
+        .nav-container { max-width: 100%; }
+
     </style>
      <!-- Confirm NO SVG or Mermaid JS used -->
      <!-- Palette: Energetic & Playful -->
@@ -98,15 +102,15 @@
      <!-- Visualization Plan: Updated based on new structure -->
 </head>
 <body class="bg-gray-100">
-     <header class="header-bg text-white p-4 shadow-lg sticky top-0 z-50">
+     <header class="header-bg text-white p-4 shadow-lg z-30">
          <div class="container mx-auto text-center">
              <h1 class="text-2xl">تحلیل بنیادی و راهبردی ایندامین (خکمک)</h1>
              <p class="text-lg mt-1">ارزیابی وضعیت و نقشه راه بهبود برای هیئت مدیره</p>
          </div>
      </header>
 
-     <nav id="navbar" class="sticky top-[88px] bg-white/95 backdrop-blur-sm shadow-md z-40">
-         <div class="container mx-auto px-4">
+     <nav id="navbar" class="sticky top-0 bg-white/95 backdrop-blur-sm shadow-md z-40">
+         <div class="container mx-auto px-4 nav-container">
              <div class="flex justify-center items-center h-auto min-h-[3.5rem]">
                    <ul class="flex-wrap">
                      <li><a href="#executive_summary" class="hover:text-primary transition-colors duration-300">خلاصه وضعیت</a></li>
@@ -124,7 +128,7 @@
 
      <main class="container mx-auto p-4 md:p-6">
 
-        <section id="executive_summary" class="mb-8 pt-28 -mt-28">
+        <section id="executive_summary" class="mb-8 pt-20 -mt-20">
             <h2 class="section-title mb-5 animate-on-scroll fade-in">خلاصه وضعیت: شاخص‌های کلیدی بحران</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 text-center mb-6">
                  <div class="kpi-card border-blue-500 animate-on-scroll fade-in-down" style="transition-delay: 100ms;"><h3 class="text-base font-semibold text-gray-500">درآمد (۶ماهه ۱۴۰۴)</h3><p class="text-3xl font-bold primary-text mt-1">۸٬۳۱۱</p><p class="text-sm text-gray-500">میلیارد ریال</p></div>
@@ -134,11 +138,12 @@
                  <div class="kpi-card border-yellow-500 animate-on-scroll fade-in-down" style="transition-delay: 500ms;"><h3 class="text-base font-semibold text-gray-500">نسبت بدهی (۱۴۰۴/۰۶/۳۱)</h3><p class="text-3xl font-bold text-yellow-600 mt-1">۷۱٪</p><p class="text-sm text-gray-500">اهرم بالا</p></div>
             </div>
              <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500 animate-on-scroll fade-in mb-8">
+                 <h3 class="text-xl font-semibold mb-3 primary-text">خلاصه مدیریتی: چالش‌ها و ضرورت اقدام</h3>
                  <p class="text-gray-700 text-justify leading-relaxed">تحلیل داده‌های مالی ایندامین نشان می‌دهد علیرغم رشد اسمی درآمد، شرکت با چالش‌های ساختاری جدی در سودآوری، نقدینگی و اهرم مالی مواجه است. حاشیه سودها بسیار پایین، بازدهی نامطلوب و بحران نقدینگی ناشی از مشکلات وصول مطالبات و مدیریت سرمایه در گردش، مشهود است. اهرم مالی بالا ریسک را افزایش داده است. بهبود پایدار، مستلزم اقدامات فوری عملیاتی (نقدینگی، هزینه) و بازنگری استراتژیک (ساختار مالی، تمرکز بر سودآوری واقعی) است.</p>
              </div>
         </section>
 
-         <section id="financial_analysis" class="mb-8 bg-white p-6 rounded-lg shadow-lg pt-28 -mt-28">
+         <section id="financial_analysis" class="mb-8 bg-white p-6 rounded-lg shadow-lg pt-20 -mt-20">
              <h2 class="section-title mb-6">بخش اول: کالبدشکافی مالی - سودآوری تحت فشار</h2>
              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div class="animate-on-scroll fade-in">
@@ -174,7 +179,7 @@
              </div>
          </section>
 
-          <section id="operational_analysis" class="mb-8 bg-white p-6 rounded-lg shadow-lg pt-28 -mt-28">
+          <section id="operational_analysis" class="mb-8 bg-white p-6 rounded-lg shadow-lg pt-20 -mt-20">
               <h2 class="section-title mb-6">بخش دوم: تحلیل ریشه‌های بحران عملیاتی</h2>
               <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                     <div class="animate-on-scroll fade-in-up order-2 lg:order-1">
@@ -187,28 +192,48 @@
                         <div class="small-chart-container"><canvas id="cogsBreakdownChart"></canvas></div>
                         <p class="text-sm text-gray-600 mt-3 text-center">مواد مستقیم (آبی: ۵۷٪) بیشترین سهم را دارد. دستمزد (زرد: ۲۲٪) و سربار (قرمز: ۲۱٪) سهم بالایی دارند.</p>
                    </div>
-                     <div class="animate-on-scroll slide-in-right order-3">
-                        <h3 class="text-lg font-semibold mb-3 text-center">روند میانگین تعداد کارکنان</h3>
-                        <div class="small-chart-container"><canvas id="employeeTrendChart"></canvas></div>
-                        <p class="text-sm text-gray-600 mt-3 text-center">تعداد کارکنان (آبی) از سال ۱۴۰۱ روندی افزایشی داشته، اما در ۶ ماهه ۱۴۰۴ کمی کاهش یافته.</p>
+                     <div class="animate-on-scroll slide-in-right order-3 lg:order-3 lg:col-span-2">
+                        <h3 class="text-lg font-semibold mb-3 text-center">وضعیت نیروی انسانی</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                             <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-200">
+                                 <table>
+                                     <thead>
+                                         <tr><th>نکات کلیدی</th><th>شرح</th></tr>
+                                     </thead>
+                                     <tbody>
+                                         <tr><th>تعداد (میانگین ۶م ۱۴۰۴)</th><td>۵۷۰ نفر (روند افزایشی از ۱۴۰۱، کاهش جزئی در ۱۴۰۴)</td></tr>
+                                         <tr><th>رشد هزینه</th><td><span class="danger-text font-bold">هزینه دستمزد مستقیم +۴۰٪!</span> (نسبت به ۶م ۱۴۰۳)</td></tr>
+                                         <tr><th>عدم تناسب</th><td>افزایش پرسنل از ۱۴۰۱ همزمان با کاهش حجم تولید از ۱۴۰۲!</td></tr>
+                                         <tr><th>تحلیل</th><td class="danger-text">بهره‌وری پایین، نیاز به بازنگری ساختار و تعداد نیروها.</td></tr>
+                                     </tbody>
+                                 </table>
+                             </div>
+                              <div class="flex flex-col items-center">
+                                  <div class="small-chart-container w-full max-w-xs"><canvas id="employeeTrendChart"></canvas></div>
+                                  <p class="text-sm text-gray-600 mt-1 text-center">تعداد کارکنان (آبی) از سال ۱۴۰۱ روندی افزایشی داشته، اما در ۶ ماهه ۱۴۰۴ کمی کاهش یافته.</p>
+                              </div>
+                        </div>
                     </div>
-                    <div class="animate-on-scroll slide-in-right order-4 lg:order-4" style="transition-delay: 100ms;">
+                    <div class="animate-on-scroll slide-in-right order-4 lg:order-4 lg:col-span-2" style="transition-delay: 100ms;">
                         <h3 class="text-lg font-semibold mb-3 text-center">قیمت‌گذاری و فروش</h3>
                           <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-200">
-                              <table>
-                                  <tbody>
-                                      <tr><th>شاخص</th><td class="font-bold">رشد ۱۵٪ درآمد (۶ماهه ۱۴۰۴)</td></tr>
-                                      <tr><th>نکته ۱</th><td>فقط ناشی از افزایش قیمت (توافق ۱۰٪ با سایپا).</td></tr>
-                                      <tr><th>نکته ۲</th><td>وابستگی ۸۰٪ فروش به گروه سایپا = قدرت چانه‌زنی پایین.</td></tr>
-                                      <tr><th>نتیجه</th><td class="danger-text">افزایش قیمت فقط جبران هزینه کرده، نه بهبود مارجین.</td></tr>
-                                  </tbody>
-                              </table>
+                             <table>
+                                 <thead>
+                                     <tr><th>نکات کلیدی</th><th>شرح</th></tr>
+                                 </thead>
+                                 <tbody>
+                                     <tr><th>رشد درآمد (۶م ۱۴۰۴)</th><td><span class="positive-value font-bold">+۱۵٪</span> (نسبت به ۶م ۱۴۰۳)</td></tr>
+                                     <tr><th>ماهیت رشد</th><td><span class="font-bold">فقط قیمتی!</span> (توافق ۱۰٪+ با سایپا)، حجم فروش ۲۲٪- کاهش!</td></tr>
+                                     <tr><th>وابستگی</th><td>حدود ۸۰٪ فروش به گروه سایپا (قدرت چانه‌زنی پایین).</td></tr>
+                                     <tr><th>تحلیل</th><td class="danger-text">افزایش قیمت فقط هزینه را پوشش داده، مارجین ثابت مانده یا کاهش یافته.</td></tr>
+                                 </tbody>
+                             </table>
                           </div>
                     </div>
               </div>
           </section>
 
-        <section id="production_strategic_analysis" class="mb-8 bg-white p-6 rounded-lg shadow-lg pt-28 -mt-28">
+        <section id="production_strategic_analysis" class="mb-8 bg-white p-6 rounded-lg shadow-lg pt-20 -mt-20">
              <h2 class="section-title mb-6">بخش سوم: تحلیل استراتژیک تولید - کاهش حجم نگران‌کننده</h2>
               <p class="text-base text-gray-700 mb-6 text-justify leading-relaxed">بررسی روند تولید و فروش محصولات کلیدی (تیپ ۶۲ و ۶۷) نشان‌دهنده افت قابل توجه در سال ۱۴۰۳ نسبت به اوج سال ۱۴۰۲ است. این کاهش حجم، که در ۶ ماهه ۱۴۰۴ نیز ادامه یافته، زنگ خطری جدی برای پایداری عملیاتی شرکت محسوب می‌شود. در حالی که سال ۱۴۰۲ با حجم تولید نزدیک به ۲ میلیون عدد، سالی با سودآوری بالا بود، کاهش حجم فعلی، توانایی شرکت در سرشکن کردن هزینه‌های ثابت را به شدت تضعیف کرده و فشار مضاعفی بر بهای تمام شده هر واحد وارد می‌کند.</p>
              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -226,10 +251,13 @@
                      <h4 class="font-semibold text-lg text-center primary-text mt-4">نکات کلیدی تحلیل تولید:</h4>
                       <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-200 mt-3">
                            <table>
+                               <thead>
+                                   <tr><th>نکات کلیدی</th><th>شرح</th></tr>
+                               </thead>
                                <tbody>
                                    <tr><th>مقایسه با اوج (۱۴۰۲):</th><td>اوج تولید و فروش در سال ۱۴۰۲ (حدود ۲ و ۱.۹ میلیون عدد) همزمان با بهترین سودآوری بود.</td></tr>
-                                   <tr><th>کاهش حجم:</th><td>کاهش ۱۰٪ تولید در ۱۴۰۳ و ادامه آن در ۶ ماهه ۱۴۰۴ (۱۲٪-) عامل فشار بر هزینه ثابت و کاهش مارجین است.</td></tr>
-                                   <tr><th>عدم تطابق فروش و تولید:</th><td>فروش ۶ ماهه ۱۴۰۴ حتی از تولید آن دوره نیز کمتر بوده (۲۲٪-) که منجر به افزایش موجودی شده است.</td></tr>
+                                   <tr><th>کاهش حجم:</th><td>کاهش ۱۰٪ تولید در ۱۴۰۳ و ادامه آن در ۶ ماهه ۱۴۰۴ (<span class="danger-text font-bold">-۱۲٪</span>) عامل فشار بر هزینه ثابت و کاهش مارجین است.</td></tr>
+                                   <tr><th>عدم تطابق فروش و تولید:</th><td>فروش ۶ ماهه ۱۴۰۴ حتی از تولید آن دوره نیز کمتر بوده (<span class="danger-text font-bold">-۲۲٪</span>) که منجر به افزایش موجودی شده است.</td></tr>
                                    <tr><th>ریسک سبد محصول:</th><td>وابستگی شدید به دو تیپ محصول (۶۲ و ۶۷) ریسک را بالا می‌برد.</td></tr>
                                    <tr><th>هدف‌گذاری:</th><td class="font-bold primary-text">بازگشت تولید به سطح حداقل سال ۱۴۰۲ برای بقا ضروری است.</td></tr>
                                </tbody>
@@ -239,7 +267,7 @@
              </div>
         </section>
 
-        <section id="debt_liquidity_analysis" class="mb-8 bg-white p-6 rounded-lg shadow-lg pt-28 -mt-28">
+        <section id="debt_liquidity_analysis" class="mb-8 bg-white p-6 rounded-lg shadow-lg pt-20 -mt-20">
               <h2 class="section-title mb-6">بخش چهارم: تحلیل بدهی‌ها و بحران نقدینگی</h2>
               <p class="text-base text-gray-700 mb-6 text-justify leading-relaxed">وضعیت نقدینگی شرکت بحرانی است. جریان نقد عملیاتی منفی، نسبت‌های نقدینگی پایین و اتکای بالا به بدهی‌های جاری، شرکت را در معرض ریسک عدم توانایی در ایفای تعهدات کوتاه‌مدت قرار داده است. رشد فزاینده مطالبات تجاری در کنار رشد موجودی کالا، نقدینگی شرکت را به شدت تحت فشار قرار داده است.</p>
               <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -317,7 +345,7 @@
               </div>
         </section>
 
-          <section id="strategic_diagnosis" class="mb-8 pt-28 -mt-28">
+          <section id="strategic_diagnosis" class="mb-8 pt-20 -mt-20">
                <h2 class="section-title mb-6">بخش پنجم: عارضه‌یابی استراتژیک</h2>
                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="bg-white p-6 rounded-lg shadow-md animate-on-scroll fade-in">
@@ -355,7 +383,7 @@
                </div>
            </section>
 
-          <section id="revival_plan" class="mb-8 pt-28 -mt-28">
+          <section id="revival_plan" class="mb-8 pt-20 -mt-20">
                <h2 class="section-title mb-6">بخش ششم: برنامه عملیاتی تحول (نقشه راه نجات)</h2>
                <div id="budget_analysis" class="mb-8 bg-yellow-100 border-r-4 border-yellow-500 p-6 rounded-lg shadow-md animate-on-scroll fade-in">
                    <h3 class="text-xl font-bold text-yellow-800 mb-3">اقدام فوری: تدوین بودجه اصلاحی قاطع و برنامه احیا</h3>
@@ -520,13 +548,25 @@
                  label: function(context) {
                      let label = context.dataset.label || ''; if (label) { label += ': '; }
                      let value = context.parsed.y;
+                     // Adjust for horizontal bar charts or other types where the value might be on the x-axis
                      if (context.chart.options.indexAxis === 'y' && context.parsed.x !== null) { value = context.parsed.x; }
                      else if (context.parsed.y === null && context.parsed.x !== null) { value = context.parsed.x; }
-                     if (value !== null && !isNaN(value)) {
-                          if (Math.abs(value) >= 1000000) { label += (value / 1000000).toLocaleString('fa-IR', { maximumFractionDigits: 1 }) + ' M'; }
-                          else if (Math.abs(value) >= 1000) { label += (value / 1000).toLocaleString('fa-IR', { maximumFractionDigits: 0 }) + ' K'; }
-                          else { label += value.toLocaleString('fa-IR'); }
-                     } return label;
+
+                     // Check if data represents K (thousands) or just numbers
+                     if (context.dataset.yAxisID === 'yVolume' || ['تعداد تولید', 'تعداد فروش', 'تیپ ۶۲', 'تیپ ۶۷'].includes(context.dataset.label)) {
+                        // Format as K
+                        if (value !== null && !isNaN(value)) {
+                            label += (value / 1000).toLocaleString('fa-IR', { maximumFractionDigits: 0 }) + ' K';
+                        }
+                     } else {
+                         // Format as standard numbers or M (millions) if applicable
+                         if (value !== null && !isNaN(value)) {
+                              if (Math.abs(value) >= 1000000) { label += (value / 1000000).toLocaleString('fa-IR', { maximumFractionDigits: 1 }) + ' M'; }
+                              else if (Math.abs(value) >= 1000) { label += (value / 1000).toLocaleString('fa-IR', { maximumFractionDigits: 0 }) + ' K'; }
+                              else { label += value.toLocaleString('fa-IR'); }
+                         }
+                     }
+                     return label;
                  }
             };
             const percentageTooltipCallbacks = {
@@ -555,10 +595,10 @@
                 financialTrendChart: { type: 'bar', data: { labels: ['۱۴۰۰', '۱۴۰۱', '۱۴۰۲', '۱۴۰۳'], datasets: [ { type: 'line', label: 'سود ناخالص', data: [494, 1359, 2169, 1671], borderColor: colorSecondary, backgroundColor: colorSecondary + '33', fill: true, tension: 0.1, borderWidth: 2, order: 1, yAxisID: 'yMargins' }, { type: 'bar', label: 'درآمد عملیاتی', data: [6537, 11639, 15877, 18693], backgroundColor: colorPrimary + 'AA', borderColor: colorPrimary, order: 2, yAxisID: 'yValues' }, { type: 'bar', label: 'بهای تمام شده', data: [6043, 10280, 13707, 17022], backgroundColor: colorDanger + 'AA', borderColor: colorDanger, order: 3, yAxisID: 'yValues' } ] }, options: { responsive: true, maintainAspectRatio: false, scales: { yValues: { type: 'linear', position: 'right', beginAtZero: true, title: { display: true, text: 'میلیارد ریال', font:{size: axisTitleFontSize} }, ticks: { font: { size: tickFontSize } } }, yMargins: { type: 'linear', position: 'left', min: 0, suggestedMax: 2500, title: { display: true, text: 'سود ناخالص (میلیارد ریال)', font:{size: axisTitleFontSize} }, grid: { drawOnChartArea: false }, ticks: { font: { size: tickFontSize } } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                 marginChart: { type: 'line', data: { labels: ['۱۴۰۰', '۱۴۰۱', '۱۴۰۲', '۱۴۰۳', wrapLabel('۶م ۱۴۰۳', 10), wrapLabel('۶م ۱۴۰۴', 10)], datasets: [ { label: 'حاشیه سود ناخالص', data: [7.6, 11.7, 13.7, 8.9, 9.1, 8.8], borderColor: colorPrimary, backgroundColor: 'transparent', tension: 0.1, borderWidth: 2, pointRadius: 3 }, { label: 'حاشیه سود عملیاتی', data: [0.4, 3.5, 3.1, 0.5, 0.5, 0.6], borderColor: colorSecondary, backgroundColor: 'transparent', tension: 0.1, borderWidth: 2, pointRadius: 3 }, { label: 'حاشیه سود خالص', data: [0.2, 2.8, 2.5, 0.4, 0.4, 0.5], borderColor: colorDanger, backgroundColor: 'transparent', tension: 0.1, borderWidth: 2, pointRadius: 3 } ] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { min: -1, suggestedMax: 15, ticks: { callback: v => v.toFixed(1) + '%', font: { size: tickFontSize } } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: percentageOnlyTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                  returnRatiosChart: { type: 'bar', data: { labels: ['۱۴۰۰', '۱۴۰۱', '۱۴۰۲', '۱۴۰۳', wrapLabel('۶م ۱۴۰۳ (*۲)', 10), wrapLabel('۶م ۱۴۰۴ (*۲)', 10)], datasets: [ { label: 'ROE', data: [11.6, 15.0, 9.1, 1.6, 1.1, 1.9], backgroundColor: colorAccent+'AA', borderColor: colorAccent }, { label: 'ROA', data: [0.5, 5.3, 3.8, 0.6, 0.4, 0.6], backgroundColor: colorPrimary+'AA', borderColor: colorPrimary } ] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, suggestedMax: 20, ticks: { callback: v => v.toFixed(1) + '%', font: { size: tickFontSize } } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: percentageOnlyTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
-                 productionSaleVolumeChart: { type: 'bar', data: { labels: ['۱۴۰۰', '۱۴۰۱', '۱۴۰۲', '۱۴۰۳', wrapLabel('۶م ۱۴۰۳', 10), wrapLabel('۶م ۱۴۰۴', 10)], datasets: [ { label: 'تعداد تولید', data: [1528046, 1731706, 1983944, 1801063, 839886, 739351], backgroundColor: colorPrimary + 'AA', borderColor: colorPrimary }, { label: 'تعداد فروش', data: [1526046, 1715799, 1872246, 1815159, 823153, 645080], backgroundColor: colorDanger + 'AA', borderColor: colorDanger } ] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { font: { size: tickFontSize }, callback: v => (v/1000).toLocaleString('fa-IR', { maximumFractionDigits: 0 }) + ' K' } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
+                 productionSaleVolumeChart: { type: 'bar', data: { labels: ['۱۴۰۰', '۱۴۰۱', '۱۴۰۲', '۱۴۰۳', wrapLabel('۶م ۱۴۰۳', 10), wrapLabel('۶م ۱۴۰۴', 10)], datasets: [ { label: 'تعداد تولید', data: [1528046, 1731706, 1983944, 1801063, 839886, 739351], backgroundColor: colorPrimary + 'AA', borderColor: colorPrimary, yAxisID: 'yVolume' }, { label: 'تعداد فروش', data: [1526046, 1715799, 1872246, 1815159, 823153, 645080], backgroundColor: colorDanger + 'AA', borderColor: colorDanger, yAxisID: 'yVolume' } ] }, options: { responsive: true, maintainAspectRatio: false, scales: { yVolume: { position: 'left', beginAtZero: true, title: { display: true, text:'تعداد (هزار)', font:{size: axisTitleFontSize} }, ticks: { font: { size: tickFontSize }, callback: v => (v/1000).toLocaleString('fa-IR', { maximumFractionDigits: 0 }) + ' K' } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                 cogsBreakdownChart: { type: 'doughnut', data: { labels: ['مواد مستقیم', 'دستمزد مستقیم', 'سربار ساخت'], datasets: [{ data: [4478064, 1714068, 1615798], backgroundColor: [colorPrimary, colorAccent, colorDanger], hoverOffset: 4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: percentageTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                 costRevenueGrowthChart: { type: 'bar', data: { labels: [wrapLabel('درآمد عملیاتی',10), wrapLabel('مواد مستقیم',10), wrapLabel('دستمزد مستقیم',10), wrapLabel('سربار ساخت',10)], datasets: [{ label: '% رشد (۶ماهه ۱۴۰۴ به ۱۴۰۳)', data: [15.3, 11.5, 40.4, 45.0], backgroundColor: [colorSecondary, colorPrimary, colorDanger, colorDanger], borderWidth: 1 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { callback: v => v + '%', font: { size: tickFontSize } } }, x: { ticks: { font: { size: tickFontSize } } } }, plugins: { legend: { display: false }, tooltip: { callbacks: percentageOnlyTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
-                productionByTypeAnnualChart: { type: 'bar', data: { labels: ['۱۴۰۱', '۱۴۰۲', '۱۴۰۳'], datasets: [ { label: 'تیپ ۶۲', data: [1018447, 1144708, 998690], backgroundColor: colorPrimary + 'AA', borderColor: colorPrimary }, { label: 'تیپ ۶۷', data: [713259, 839236, 802373], backgroundColor: colorAccent + 'AA', borderColor: colorAccent } ] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'x', scales: { y: { beginAtZero: true, stacked: true, title: {display: true, text: 'تعداد', font: {size: axisTitleFontSize}}, ticks: { font: { size: tickFontSize }, callback: v => (v/1000).toLocaleString('fa-IR', { maximumFractionDigits: 0 }) + ' K' } }, x: { stacked: true, ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
+                productionByTypeAnnualChart: { type: 'bar', data: { labels: ['۱۴۰۱', '۱۴۰۲', '۱۴۰۳'], datasets: [ { label: 'تیپ ۶۲', data: [1018447, 1144708, 998690], backgroundColor: colorPrimary + 'AA', borderColor: colorPrimary, yAxisID: 'yVolume' }, { label: 'تیپ ۶۷', data: [713259, 839236, 802373], backgroundColor: colorAccent + 'AA', borderColor: colorAccent, yAxisID: 'yVolume' } ] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'x', scales: { yVolume: { beginAtZero: true, stacked: true, title: {display: true, text: 'تعداد (هزار)', font: {size: axisTitleFontSize}}, ticks: { font: { size: tickFontSize }, callback: v => (v/1000).toLocaleString('fa-IR', { maximumFractionDigits: 0 }) + ' K' } }, x: { stacked: true, ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                 employeeTrendChart: { type: 'line', data: { labels: ['۱۴۰۱', '۱۴۰۲', wrapLabel('۶م ۱۴۰۳', 10), '۱۴۰۳', wrapLabel('۶م ۱۴۰۴', 10)], datasets: [{ label: 'میانگین تعداد کارکنان', data: [494, 546, 573, 585, 570], borderColor: colorPrimary, backgroundColor: colorPrimary + '33', fill: true, tension: 0.1, pointRadius: 4 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: false, title: {display: true, text: 'تعداد نفر', font: {size: axisTitleFontSize}}, ticks: { font: { size: tickFontSize } } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { display: false }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                 cfoTrendChart: { type: 'bar', data: { labels: ['۱۴۰۰', '۱۴۰۱', '۱۴۰۲', '۱۴۰۳', wrapLabel('۶م ۱۴۰۳', 10), wrapLabel('۶م ۱۴۰۴', 10)], datasets: [{ label: 'جریان نقد عملیاتی', data: [170, -19.5, 110.7, 284.2, -28.9, -104.1], backgroundColor: (context) => context.raw >= 0 ? colorSecondary : colorDanger, borderColor: (context) => context.raw >= 0 ? colorSecondary : colorDanger, borderWidth: 1 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { title: {display: true, text: 'میلیارد ریال', font: {size: axisTitleFontSize}}, ticks: { font: { size: tickFontSize } } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { display: false }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                  liquidityRatiosChart: { type: 'bar', data: { labels: [wrapLabel('نسبت جاری', 10), wrapLabel('نسبت آنی', 10)], datasets: [{ label: 'مقدار نسبت', data: [1.14, 0.79], backgroundColor: [colorPrimary + 'AA', colorDanger + 'AA'], borderColor: [colorPrimary, colorDanger], borderWidth: 1 }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', scales: { x: { beginAtZero: true, suggestedMax: 1.5, ticks: { font: { size: tickFontSize } } }, y: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { display: false }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
@@ -580,7 +620,11 @@
                          if (canvasElement && chartConfigs[canvasId] && typeof canvasElement.getContext === 'function') {
                               const existingChart = Chart.getChart(canvasElement);
                               if (!existingChart) {
-                                  new Chart(canvasElement.getContext('2d'), chartConfigs[canvasId]);
+                                  try {
+                                       new Chart(canvasElement.getContext('2d'), chartConfigs[canvasId]);
+                                  } catch (error) {
+                                       console.error("Error creating chart:", canvasId, error);
+                                  }
                               }
                              observer.unobserve(entry.target);
                          } else if (canvasElement && !chartConfigs[canvasId]) {
@@ -588,14 +632,13 @@
                              observer.unobserve(entry.target);
                          } else if (!canvasElement) {
                               console.warn(`Canvas element not found for ID: ${canvasId}`);
-                              observer.unobserve(entry.target); // Stop observing if element not found
                          }
                      }
                  });
              }, { threshold: 0.4 });
 
              document.querySelectorAll('canvas').forEach(canvas => {
-                 if (canvas.id) { // Only observe canvases with IDs
+                 if (canvas.id) {
                     chartObserver.observe(canvas);
                  } else {
                      console.warn('Found a canvas element without an ID. Skipping observation.');
