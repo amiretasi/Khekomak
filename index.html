@@ -177,30 +177,22 @@
           <section id="operational_analysis" class="mb-8 bg-white p-6 rounded-lg shadow-lg pt-28 -mt-28">
               <h2 class="section-title mb-6">بخش دوم: تحلیل ریشه‌های بحران عملیاتی</h2>
               <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-                    <div class="animate-on-scroll fade-in-up">
+                    <div class="animate-on-scroll fade-in-up order-2 lg:order-1">
                        <h3 class="text-lg font-semibold mb-3 text-center">مقایسه رشد هزینه‌ها و درآمد (۶ماهه ۱۴۰۴ به ۱۴۰۳)</h3>
                         <div class="chart-container"><canvas id="costRevenueGrowthChart"></canvas></div>
                         <p class="text-sm text-gray-600 mt-3 text-center">رشد دستمزد (۴۰٪) و سربار (۴۵٪) بسیار بیشتر از رشد درآمد (۱۵٪) و رشد هزینه مواد (۱۱.۵٪) بوده است!</p>
                    </div>
-                   <div class="animate-on-scroll fade-in">
+                   <div class="animate-on-scroll fade-in order-1 lg:order-2">
                         <h3 class="text-lg font-semibold mb-3 text-center">ترکیب بهای تمام شده ساخت (۶ماهه ۱۴۰۴)</h3>
                         <div class="small-chart-container"><canvas id="cogsBreakdownChart"></canvas></div>
                         <p class="text-sm text-gray-600 mt-3 text-center">مواد مستقیم (آبی: ۵۷٪) بیشترین سهم را دارد. دستمزد (زرد: ۲۲٪) و سربار (قرمز: ۲۱٪) سهم بالایی دارند.</p>
                    </div>
-                   <div class="animate-on-scroll slide-in-right">
-                       <h3 class="text-lg font-semibold mb-3 text-center">وضعیت نیروی انسانی</h3>
-                         <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-200">
-                             <table>
-                                 <tbody>
-                                     <tr><th>شاخص</th><td class="font-bold">۵۷۰ نفر (میانگین ۶ماهه ۱۴۰۴)</td></tr>
-                                     <tr><th>نکته ۱</th><td>رشد ۴۰٪ هزینه دستمزد مستقیم!</td></tr>
-                                     <tr><th>نکته ۲</th><td>افزایش پرسنل با وجود کاهش تولید!</td></tr>
-                                     <tr><th>نتیجه</th><td class="danger-text">نیاز به افزایش بهره‌وری و بازنگری ساختار.</td></tr>
-                                 </tbody>
-                             </table>
-                         </div>
-                   </div>
-                    <div class="animate-on-scroll slide-in-right" style="transition-delay: 100ms;">
+                     <div class="animate-on-scroll slide-in-right order-3">
+                        <h3 class="text-lg font-semibold mb-3 text-center">روند میانگین تعداد کارکنان</h3>
+                        <div class="small-chart-container"><canvas id="employeeTrendChart"></canvas></div>
+                        <p class="text-sm text-gray-600 mt-3 text-center">تعداد کارکنان (آبی) از سال ۱۴۰۱ روندی افزایشی داشته، اما در ۶ ماهه ۱۴۰۴ کمی کاهش یافته.</p>
+                    </div>
+                    <div class="animate-on-scroll slide-in-right order-4 lg:order-4" style="transition-delay: 100ms;">
                         <h3 class="text-lg font-semibold mb-3 text-center">قیمت‌گذاری و فروش</h3>
                           <div class="overflow-x-auto shadow-sm rounded-lg border border-gray-200">
                               <table>
@@ -487,29 +479,27 @@
          document.addEventListener('DOMContentLoaded', function () {
             // Safe Chart.js Defaults Initialization
              if (typeof Chart !== 'undefined' && Chart.defaults) {
-                Chart.defaults.font = Chart.defaults.font || {}; // Ensure font object exists
+                Chart.defaults.font = Chart.defaults.font || {};
                 Chart.defaults.font.family = 'Vazirmatn';
-                Chart.defaults.font.size = 13; // Increased Base chart font size
+                Chart.defaults.font.size = 13;
 
-                Chart.defaults.plugins = Chart.defaults.plugins || {}; // Ensure plugins object exists
+                Chart.defaults.plugins = Chart.defaults.plugins || {};
 
-                Chart.defaults.plugins.tooltip = Chart.defaults.plugins.tooltip || {}; // Ensure tooltip object exists
+                Chart.defaults.plugins.tooltip = Chart.defaults.plugins.tooltip || {};
                 Chart.defaults.plugins.tooltip.rtl = true;
                 Chart.defaults.plugins.tooltip.textDirection = 'rtl';
-                Chart.defaults.plugins.tooltip.titleFont = Chart.defaults.plugins.tooltip.titleFont || {}; // Ensure titleFont object exists
-                Chart.defaults.plugins.tooltip.bodyFont = Chart.defaults.plugins.tooltip.bodyFont || {}; // Ensure bodyFont object exists
-                Chart.defaults.plugins.tooltip.titleFont.size = 14; // Tooltip title
-                Chart.defaults.plugins.tooltip.bodyFont.size = 13; // Tooltip body
+                Chart.defaults.plugins.tooltip.titleFont = Chart.defaults.plugins.tooltip.titleFont || {};
+                Chart.defaults.plugins.tooltip.bodyFont = Chart.defaults.plugins.tooltip.bodyFont || {};
+                Chart.defaults.plugins.tooltip.titleFont.size = 14;
+                Chart.defaults.plugins.tooltip.bodyFont.size = 13;
 
-
-                Chart.defaults.plugins.legend = Chart.defaults.plugins.legend || {}; // Ensure legend object exists
+                Chart.defaults.plugins.legend = Chart.defaults.plugins.legend || {};
                 Chart.defaults.plugins.legend.rtl = true;
                 Chart.defaults.plugins.legend.textDirection = 'rtl';
-                Chart.defaults.plugins.legend.labels = Chart.defaults.plugins.legend.labels || {}; // Ensure labels object exists
-                Chart.defaults.plugins.legend.labels.font = Chart.defaults.plugins.legend.labels.font || {}; // Ensure font object exists
-                Chart.defaults.plugins.legend.labels.font.size = 12; // Increased Legend font size
+                Chart.defaults.plugins.legend.labels = Chart.defaults.plugins.legend.labels || {};
+                Chart.defaults.plugins.legend.labels.font = Chart.defaults.plugins.legend.labels.font || {};
+                Chart.defaults.plugins.legend.labels.font.size = 12;
             }
-
 
              const wrapLabel = (label, maxWidth = 16) => {
                  if (typeof label !== 'string' || label.length <= maxWidth) { return label; }
@@ -521,7 +511,6 @@
                      else { lines.push(currentLine); currentLine = word.length <= maxWidth ? word : word.substring(0, maxWidth) + '...'; }
                  });
                  if (currentLine) lines.push(currentLine);
-                 // Flatten the array if it contains nested arrays, then join
                  const flatLines = lines.flat();
                  return flatLines.length === 1 ? flatLines[0] : flatLines.map(line => line.length > maxWidth ? line.substring(0, maxWidth) + '...' : line);
              };
@@ -570,6 +559,7 @@
                 cogsBreakdownChart: { type: 'doughnut', data: { labels: ['مواد مستقیم', 'دستمزد مستقیم', 'سربار ساخت'], datasets: [{ data: [4478064, 1714068, 1615798], backgroundColor: [colorPrimary, colorAccent, colorDanger], hoverOffset: 4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: percentageTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                 costRevenueGrowthChart: { type: 'bar', data: { labels: [wrapLabel('درآمد عملیاتی',10), wrapLabel('مواد مستقیم',10), wrapLabel('دستمزد مستقیم',10), wrapLabel('سربار ساخت',10)], datasets: [{ label: '% رشد (۶ماهه ۱۴۰۴ به ۱۴۰۳)', data: [15.3, 11.5, 40.4, 45.0], backgroundColor: [colorSecondary, colorPrimary, colorDanger, colorDanger], borderWidth: 1 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { callback: v => v + '%', font: { size: tickFontSize } } }, x: { ticks: { font: { size: tickFontSize } } } }, plugins: { legend: { display: false }, tooltip: { callbacks: percentageOnlyTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                 productionByTypeAnnualChart: { type: 'bar', data: { labels: ['۱۴۰۱', '۱۴۰۲', '۱۴۰۳'], datasets: [ { label: 'تیپ ۶۲', data: [1018447, 1144708, 998690], backgroundColor: colorPrimary + 'AA', borderColor: colorPrimary }, { label: 'تیپ ۶۷', data: [713259, 839236, 802373], backgroundColor: colorAccent + 'AA', borderColor: colorAccent } ] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'x', scales: { y: { beginAtZero: true, stacked: true, title: {display: true, text: 'تعداد', font: {size: axisTitleFontSize}}, ticks: { font: { size: tickFontSize }, callback: v => (v/1000).toLocaleString('fa-IR', { maximumFractionDigits: 0 }) + ' K' } }, x: { stacked: true, ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
+                employeeTrendChart: { type: 'line', data: { labels: ['۱۴۰۱', '۱۴۰۲', wrapLabel('۶م ۱۴۰۳', 10), '۱۴۰۳', wrapLabel('۶م ۱۴۰۴', 10)], datasets: [{ label: 'میانگین تعداد کارکنان', data: [494, 546, 573, 585, 570], borderColor: colorPrimary, backgroundColor: colorPrimary + '33', fill: true, tension: 0.1, pointRadius: 4 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: false, title: {display: true, text: 'تعداد نفر', font: {size: axisTitleFontSize}}, ticks: { font: { size: tickFontSize } } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { display: false }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                 cfoTrendChart: { type: 'bar', data: { labels: ['۱۴۰۰', '۱۴۰۱', '۱۴۰۲', '۱۴۰۳', wrapLabel('۶م ۱۴۰۳', 10), wrapLabel('۶م ۱۴۰۴', 10)], datasets: [{ label: 'جریان نقد عملیاتی', data: [170, -19.5, 110.7, 284.2, -28.9, -104.1], backgroundColor: (context) => context.raw >= 0 ? colorSecondary : colorDanger, borderColor: (context) => context.raw >= 0 ? colorSecondary : colorDanger, borderWidth: 1 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { y: { title: {display: true, text: 'میلیارد ریال', font: {size: axisTitleFontSize}}, ticks: { font: { size: tickFontSize } } }, x: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { display: false }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                  liquidityRatiosChart: { type: 'bar', data: { labels: [wrapLabel('نسبت جاری', 10), wrapLabel('نسبت آنی', 10)], datasets: [{ label: 'مقدار نسبت', data: [1.14, 0.79], backgroundColor: [colorPrimary + 'AA', colorDanger + 'AA'], borderColor: [colorPrimary, colorDanger], borderWidth: 1 }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', scales: { x: { beginAtZero: true, suggestedMax: 1.5, ticks: { font: { size: tickFontSize } } }, y: { ticks: { font: { size: tickFontSize+1 } } } }, plugins: { legend: { display: false }, tooltip: { callbacks: standardTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
                  debtCompositionChart: { type: 'doughnut', data: { labels: ['بدهی‌های جاری', 'بدهی‌های غیرجاری'], datasets: [{ label: 'ترکیب بدهی‌ها', data: [10086071, 1305542], backgroundColor: [colorDanger, colorAccent], hoverOffset: 4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { size: legendFontSize } } }, tooltip: { callbacks: percentageTooltipCallbacks, bodyFont: { size: tooltipBodyFontSize }, titleFont: { size: tooltipTitleFontSize }} } } },
@@ -593,14 +583,25 @@
                                   new Chart(canvasElement.getContext('2d'), chartConfigs[canvasId]);
                               }
                              observer.unobserve(entry.target);
+                         } else if (canvasElement && !chartConfigs[canvasId]) {
+                             console.warn(`Chart config not found for canvas ID: ${canvasId}`);
+                             observer.unobserve(entry.target);
+                         } else if (!canvasElement) {
+                              console.warn(`Canvas element not found for ID: ${canvasId}`);
+                              observer.unobserve(entry.target); // Stop observing if element not found
                          }
                      }
                  });
              }, { threshold: 0.4 });
 
-             document.querySelectorAll('canvas').forEach(canvas => { chartObserver.observe(canvas); });
+             document.querySelectorAll('canvas').forEach(canvas => {
+                 if (canvas.id) { // Only observe canvases with IDs
+                    chartObserver.observe(canvas);
+                 } else {
+                     console.warn('Found a canvas element without an ID. Skipping observation.');
+                 }
+             });
          });
      </script>
 </body>
 </html>
-
